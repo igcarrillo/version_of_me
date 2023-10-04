@@ -1,0 +1,2 @@
+# Ignore files related to ChatGPT keys
+secrets.toml
