@@ -34,7 +34,7 @@ if prompt := st.chat_input("Your question"): # Prompt for user input and save to
 
 for message in st.session_state.messages: # Display the prior chat messages
     with st.chat_message(message["role"]):
-             if st.chat_message(message["role"] not "system")
+             if st.chat_message(message["role"]) != "system": # but do not display system messages
                  st.write(message["content"])
 
 # If last message is not from assistant, generate a new response
