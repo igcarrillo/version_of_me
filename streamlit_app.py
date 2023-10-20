@@ -10,7 +10,7 @@ st.title("Chat with " + st.secrets.character + ", powered by LlamaIndex 💬")
          
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
-        {"role": "assistant", "content": "Ask me a question about " + st.secrets.character }
+        {"role": "assistant", "content": "Please ask me a question about " + st.secrets.character }
     ]
 
 @st.cache_resource(show_spinner=False)
