@@ -29,7 +29,8 @@ if "chat_engine" not in st.session_state.keys(): # Initialize the chat engine
 
 #added system role to remind of obligation to talk as the character
 if prompt := st.chat_input("Your question"): # Prompt for user input and save to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt}, {"role": "system", "content": "You are an assistant that responds and speaks like" + st.secrets.character })
+    st.session_state.messages.append({"role": "user", "content": prompt})
+    st.session_state.messages.append({"role": "system", "content": "You are an assistant that responds and speaks like" + st.secrets.character }) # add context to the response
 
 for message in st.session_state.messages: # Display the prior chat messages
     with st.chat_message(message["role"]):
