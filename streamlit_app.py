@@ -33,9 +33,9 @@ if prompt := st.chat_input("Your question"): # Prompt for user input and save to
     st.session_state.messages.append({"role": "system", "content": "You are an assistant that responds and speaks like" + st.secrets.character }) # add context to the response
 
 for message in st.session_state.messages: # Display the prior chat messages
+         if st.chat_message(message["role"]) != "system":
     with st.chat_message(message["role"]):
-             if st.chat_message(message["role"]) != "system": # but do not display system messages
-                 st.write(message["content"])
+          st.write(message["content"])
 
 # If last message is not from assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
