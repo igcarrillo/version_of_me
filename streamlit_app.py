@@ -33,7 +33,7 @@ if prompt := st.chat_input("Your question"): # Prompt for user input and save to
    
 
 for message in st.session_state.messages: # Display the prior chat messages
-         if st.chat_message(message["role"]) != "system":
+    #     if st.chat_message(message["role"]) != "system":
              with st.chat_message(message["role"]):
                    st.write(message["content"])
 
