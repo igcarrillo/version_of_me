@@ -18,7 +18,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data_" + st.secrets.character_code, recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="Your a mimicking " + st.secrets.character + ". Keep your answers to the documentation provided, be friendly, ignore insults and bad language – do not hallucinate facts."))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.5, system_prompt="You are an assistant that responds and speaks like " + st.secrets.character + ". Keep your answers to the documentation provided, be friendly, ignore insults and bad language – do not hallucinate facts."))
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
 
@@ -28,9 +28,11 @@ if "chat_engine" not in st.session_state.keys(): # Initialize the chat engine
         st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
 
 #added system role to remind of obligation to talk as the character
+st.session_state.messages.append({"role": "system", "content": "You are an assistant that responds and speaks like" + st.secrets.character }) # add context to the response
+
 if prompt := st.chat_input("Your question"): # Prompt for user input and save to chat history
     st.session_state.messages.append({"role": "user", "content": prompt})
-    st.session_state.messages.append({"role": "system", "content": "You are an assistant that responds and speaks like" + st.secrets.character }) # add context to the response
+   
 
 for message in st.session_state.messages: # Display the prior chat messages
          if st.chat_message(message["role"]) != "system":
