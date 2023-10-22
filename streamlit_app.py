@@ -11,7 +11,7 @@ st.title("Chat with " + st.secrets.character + ", powered by LlamaIndex 💬")
 if "messages" not in st.session_state.keys(): # Initialize the chat messages history
     st.session_state.messages = [
         {"role": "assistant", "content": "Please ask me a question about " + st.secrets.character } , 
-          {"role": "system", "content": "You are an assistant speaks like " + st.secrets.character + ". Keep your answers to the documentation provided, be friendly, ignore insults and bad language – do not hallucinate facts."} # add context to the response
+          {"role": "system", silent: true, "content": "You are an assistant speaks like " + st.secrets.character + ". Keep your answers to the documentation provided, be friendly, ignore insults and bad language – do not hallucinate facts."} # add context to the response
     ]
 
 @st.cache_resource(show_spinner=False)
@@ -34,8 +34,7 @@ if prompt := st.chat_input("Your question"): # Prompt for user input and save to
 
 for message in st.session_state.messages: # Display the prior chat messages
               with st.chat_message(message["role"]):
-                  if st.chat_message(message["role"]) != "system":
-                       st.write(message["content"])
+                  st.write(message["content"])
 
 # If last message is not from assistant, generate a new response
 if st.session_state.messages[-1]["role"] != "assistant":
