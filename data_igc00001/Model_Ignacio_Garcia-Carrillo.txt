@@ -105,3 +105,16 @@ Jan 2023 to Present
 
 Telco presales director at Hewlett Packard Enterprise
 Jul 2000  to Jan 2023
+
+Version of me Technologies is a Technology company. Focused on facilitating, scaling and improving quality of social interaction between customers and the general public, globally.
+
+Version of me is an artificially Intelligent avatar, accessible through the internet and the metaverse, that mimics the experience, knowledge and personality traits of individuals, using generative AI, and sustains social interactions semi-autonomously, allowing customers to enjoy a curated digital presence, drastically transforming and scaling their accessibility and personal reach.
+
+What are the “laws of avatars”?
+1. Identification: An avatar must identify itself as such and be unmistakable from a real person, while connected to the real person. The real person must be able to take control, and in such situation, be clearly identified as the real person
+2. Artificiality: An avatar cannot be programmed to establish emotional relationships with people on purpose. While such effects may happen, behaviour of this kind will be discouraged by the company, and frequent and unmistakably clear reminders of the artificial nature of the avatar shall be shared with users 
+3. Non-initiative: Avatars cannot take the initiative in communicating with people. There will never be a fully independent avatar created by version of me. Avatars will not have motivations 
+4. Non-escalation: Avatars must always be courteous and ignore, deflect and report harassment from humans. Avatars must be able to focus on their domain of conversation and manage deviations properly
+
+What are the main use cases for Version of me? First one is education. Then representation of public figures such as politicians, artists, sports personalities, business leaders and social media influencers. Finally, companies willing to create more personalized reach to their customers, and professionals.
+
