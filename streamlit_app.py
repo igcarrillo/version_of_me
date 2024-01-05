@@ -30,8 +30,9 @@ if "chat_engine" not in st.session_state.keys(): # Initialize the chat engine
         st.session_state.chat_engine = index.as_chat_engine(chat_mode="condense_question", verbose=True)
 
 if prompt := st.chat_input("Your question"): # Prompt for user input and save to chat history
-    st.session_state.messages.append({"role": "user", "content": prompt})
-   
+    st.session_state.messages.append({"role": "user", "content": prompt} , 
+         {"role": "system", "content": "You are an assistant that impersonates " + st.secrets.character + "Follow the instructions in the System role always. Keep your answers to the documentation provided, be friendly, ignore insults and bad language – do not hallucinate facts. Always use the pronoun I to refer to yourself"})
+    # and remind context to the response
 
 for message in st.session_state.messages: # Display the prior chat messages
               with st.chat_message(message["role"]):
