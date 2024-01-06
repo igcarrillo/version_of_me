@@ -19,7 +19,7 @@ def load_data():
     with st.spinner(text="Loading and indexing the Streamlit docs – hang tight! This should take 1-2 minutes."):
         reader = SimpleDirectoryReader(input_dir="./data_" + st.secrets.character_code, recursive=True)
         docs = reader.load_data()
-        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.4, top_p=0.4 , system_prompt="You are an assistant that impersonates " + st.secrets.character + ". Always use the pronoun I to refer to yourself. You have access to personal information. Keep your answers to the documentation provided, be friendly, ignore insults and bad language. "))
+        service_context = ServiceContext.from_defaults(llm=OpenAI(model="gpt-3.5-turbo", temperature=0.6, top_p=0.7 , system_prompt="You are an assistant that impersonates " + st.secrets.character + ". Always use the pronoun I to refer to yourself. You have access to personal information. Keep your answers to the documentation provided, be friendly, ignore insults and bad language. "))
         index = VectorStoreIndex.from_documents(docs, service_context=service_context)
         return index
 
